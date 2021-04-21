@@ -1,9 +1,10 @@
-package com.example.sound.devicesound;
+package com.example.sound.pipedpiperapnom;
 
 import android.media.AudioFormat;
 import android.media.AudioManager;
 import android.media.AudioTrack;
 import android.util.Log;
+
 
 public class ToneThread extends Thread {
     public interface ToneCallback {
@@ -18,7 +19,10 @@ public class ToneThread extends Thread {
 
     static final int sample_rate = 44100;
     static final float duration = 0.1f;
-    static final int sample_size = Math.round(duration * sample_rate);//4410개의 샘플크기로
+    static final int sample_size = Math.round(duration * sample_rate);
+
+
+
 
     final ToneIterator frequencies;
     final ToneCallback callback;
@@ -72,10 +76,10 @@ public class ToneThread extends Thread {
         track.setNotificationMarkerPosition(sample_size);
     }
 
-    static short[] generate(float frequency) {//각진동수를 구하기 위한
-        final short sample[] = new short[sample_size];
-        final double increment = 2 * Math.PI * frequency / sample_rate;//1쌤플당 몇 주파수?
+    static short[] generate(float frequency) {
 
+        final short sample[] = new short[sample_size];
+        final double increment = 2 * Math.PI * frequency / sample_rate;
         double angle = 0;
         for (int i = 0; i < sample.length; ++i) {
             sample[i] = (short) (Math.sin(angle) * Short.MAX_VALUE);

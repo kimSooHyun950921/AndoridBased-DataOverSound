@@ -1,4 +1,4 @@
-package com.example.sound.devicesound;
+package com.example.sound.pipedpiperapnom;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.example.sound.devicesound", appContext.getPackageName());
+        assertEquals("com.example.sound.pipedpiperapnom", appContext.getPackageName());
     }
 }

@@ -16,6 +16,8 @@
 
 package google.zxing.common.reedsolomon;
 
+import android.util.Log;
+
 /**
  * <p>Implements Reed-Solomon decoding, as the name implies.</p>
  *
@@ -79,6 +81,13 @@ public final class ReedSolomonDecoder {
     int[] errorLocations = findErrorLocations(sigma);
     int[] errorMagnitudes = findErrorMagnitudes(omega, errorLocations, dataMatrix);
     for (int i = 0; i < errorLocations.length; i++) {
+      Log.d("errorLocation length", Integer.toString(received.length));
+      Log.d("errorLocation field1", Integer.toString(field.log(errorLocations[i])));
+      Log.d("errorLocation field2", field.toString());
+      Log.d("errorLocation errorLoc", Integer.toString(errorLocations[i]));
+
+
+
       int position = received.length - 1 - field.log(errorLocations[i]);
       if (position < 0) {
         throw new ReedSolomonException("Bad error location");
